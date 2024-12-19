@@ -1,0 +1,55 @@
+# Load the airquality dataset
+data("airquality")
+
+# Display the first few rows
+head(airquality)
+
+
+
+
+
+# Histogram for Ozone levels
+hist(
+  airquality$Ozone, 
+  main = "Ozone Levels in New York (May-Sep 1973)", 
+  xlab = "Ozone", 
+  ylab = "Frequency", 
+  col = "lightblue"
+)
+
+
+
+
+# Histogram with custom borders and no axes
+hist(
+  airquality$Ozone, 
+  main = "Ozone Levels in New York (May-Sep 1973)", 
+  xlab = "Ozone", 
+  ylab = "Frequency", 
+  col = "lightblue", 
+  border = "white", 
+  axes = FALSE
+)
+# Add custom axes
+axis(1) # X-axis
+axis(2) # Y-axis
+
+
+
+# Histogram with a density curve
+hist(
+  airquality$Ozone, 
+  main = "Ozone Levels with Density Curve", 
+  xlab = "Ozone", 
+  ylab = "Density", 
+  col = "lightblue", 
+  border = "white", 
+  freq = FALSE
+)
+
+# Add density curve
+lines(
+  density(na.omit(airquality$Ozone)), 
+  col = "red", 
+  lwd = 2
+)

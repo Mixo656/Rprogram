@@ -1,0 +1,23 @@
+# Load dataset
+data(mammals)
+
+# Display the first few rows of the dataset
+head(mammals)
+
+# Calculate Pearson Correlation
+pearson_corr <- cor(mammals$body, mammals$brain, method = "pearson")
+print(paste("Pearson Correlation:", pearson_corr))
+
+# Calculate Spearman Correlation
+spearman_corr <- cor(mammals$body, mammals$brain, method = "spearman")
+print(paste("Spearman Correlation:", spearman_corr))
+
+# (b) Plot the data
+plot(
+  mammals$body, mammals$brain,
+  main = "Body Weight vs Brain Weight",
+  xlab = "Body Weight",
+  ylab = "Brain Weight",
+  pch = 19,
+  col = "blue"
+)

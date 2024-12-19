@@ -1,0 +1,36 @@
+# Create the `items` data frame
+items <- data.frame(
+  ItemCode = c(1001, 1002, 1003, 1004, 1005),
+  ItemCategory = c("Electronics", "Desktop Supplies", "Office Supplies", "USB", "CD Drive"),
+  ItemPrice = c(400, 300, 350, 400, 800)
+)
+
+# Print the `items` data frame
+print("Items Data Frame:")
+print(items)
+
+# (a) Subset items with ItemPrice >= 350
+subset_price <- subset(items, ItemPrice >= 350)
+print("Subset - Price >= 350:")
+print(subset_price)
+
+# (b) Subset items with specific ItemCategory values
+subset_category <- subset(items, ItemCategory %in% c("Office Supplies", "Desktop Supplies"))
+print("Subset - Specific Categories:")
+print(subset_category)
+
+# Create the `item_details` data frame
+item_details <- data.frame(
+  ItemCode = c(1001, 1002, 1003, 1004, 1005),
+  ItemQtyOnHand = c(10, 2, 3, 4, 8),
+  ItemRecordLvl = c(100, 500, 800, 200, 600)
+)
+
+# Print the `item_details` data frame
+print("Item Details Data Frame:")
+print(item_details)
+
+# Merge `items` and `item_details` by ItemCode
+merge_data <- merge(items, item_details, by = "ItemCode")
+print("Merged Data Frame:")
+print(merge_data)

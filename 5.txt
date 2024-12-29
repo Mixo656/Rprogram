@@ -1,0 +1,30 @@
+# Function to check if a number is prime
+primez <- function(n) {
+  if (n <= 1) {
+    is_prime <- FALSE
+  } else if (n == 2) {
+    is_prime <- TRUE
+  } else {
+    is_prime <- TRUE
+    for (m in 2:sqrt(n)) { # Check divisors up to sqrt(n)
+      if (n %% m == 0) {
+        is_prime <- FALSE
+        break
+      }
+    }
+  }
+  return(is_prime)
+}
+
+# Generate primes up to n
+n <- 100
+primes <- c() # Initialize an empty vector
+
+for (x in 1:n) {
+  if (primez(x) == TRUE) { # Call the prime checking function
+    primes <- c(primes, x) # Append prime number to the list
+  }
+}
+
+# Print the list of primes
+print(primes)

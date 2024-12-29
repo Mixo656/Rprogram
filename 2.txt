@@ -1,0 +1,49 @@
+# Create sample data for Monthly Revenue and Expenses
+monthly_revenue <- c(20000, 22000, 25000, 18000, 30000, 31000, 27000, 29000, 26000, 24000,
+                     21000, 23000)
+monthly_expenses <- c(15000, 18000, 20000, 17000, 25000, 24000, 23000, 26000, 22000, 20000,
+                      19000, 21000)
+
+# Calculate Profit for each month
+profit <- monthly_revenue - monthly_expenses
+
+# Calculate Profit after tax for each month (Tax Rate = 30%)
+tax_rate <- 0.30
+profit_after_tax <- profit * (1 - tax_rate)
+
+# Calculate Profit Margin for each month
+profit_margin <- (profit_after_tax / monthly_revenue) * 100
+
+# Identify Good and Bad months
+mean_profit_after_tax <- mean(profit_after_tax)
+good_months <- profit_after_tax > mean_profit_after_tax
+bad_months <- profit_after_tax < mean_profit_after_tax
+
+# Identify the Best and Worst months
+best_month <- which.max(profit_after_tax)
+worst_month <- which.min(profit_after_tax)
+
+# Format values as required
+formatted_profit <- round(profit / 1000, 2) # in units of $1000
+formatted_profit_after_tax <- round(profit_after_tax / 1000, 2) # in units of $1000
+formatted_profit_margin <- round(profit_margin, 0) # no decimal points
+
+# Combine results into a data frame
+results <- data.frame(
+  Month = 1:12,
+  Revenue_in_1000s = monthly_revenue / 1000,
+  Expenses_in_1000s = monthly_expenses / 1000,
+  Profit_in_1000s = formatted_profit,
+  Profit_After_Tax_in_1000s = formatted_profit_after_tax,
+  Profit_Margin_Percentage = formatted_profit_margin,
+  Good_Month = good_months,
+  Bad_Month = bad_months,
+  Best_Month = 1:12 == best_month,
+  Worst_Month = 1:12 == worst_month
+)
+
+# Save results to a CSV file
+write.csv(results, "financial_statement.csv", row.names = FALSE)
+
+# Print the results
+print(results)

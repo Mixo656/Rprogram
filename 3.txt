@@ -1,0 +1,22 @@
+
+mat1 <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+mat2 <- matrix(c(5, 6, 7, 8), nrow = 2, ncol = 2)
+
+
+transpose_mat1 <- t(mat1)
+print("Transpose of mat1:")
+print(transpose_mat1)
+
+
+mat_add <- mat1 + mat2
+print("Addition of mat1 and mat2:")
+print(mat_add)
+
+
+mat_sub <- mat1 - mat2
+print("Subtraction of mat1 and mat2:")
+print(mat_sub)
+
+mat_mul <- mat1 %*% mat2
+print("Multiplication of mat1 and mat2:")
+print(mat_mul)

@@ -1,0 +1,48 @@
+# Step 1: Create a data frame with 20 employee details
+employee_data <- data.frame(
+  id = 1:20,
+  name = c("Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Helen", "Ian", "Jack",
+           "Kate", "Liam", "Mona", "Nina", "Oscar", "Paul", "Quinn", "Rita", "Steve", "Tina"),
+  salary = c(15000, 22000, 18000, 25000, 27000, 19000, 30000, 23000, 21000, 24000,
+             20000, 17000, 28000, 26000, 31000, 16000, 22000, 29000, 18000, 27000),
+  start_date = as.Date(c("2010-01-15", "2012-03-18", "2015-05-10", "2018-07-20", "2020-09-25",
+                         "2016-11-30", "2017-02-14", "2019-04-25", "2013-06-18", "2021-08-05",
+                         "2014-10-15", "2011-12-20", "2018-02-28", "2017-09-30", "2015-01-01",
+                         "2013-03-22", "2020-05-16", "2021-07-19", "2014-08-23", "2016-11-11")),
+  dept = c("IT", "HR", "Finance", "IT", "IT", "HR", "IT", "Finance", "HR", "IT",
+           "Finance", "IT", "HR", "IT", "Finance", "HR", "IT", "IT", "Finance", "IT")
+)
+
+# Step 2: Save the data frame to a CSV file named "input.csv"
+write.csv(employee_data, "input.csv", row.names = FALSE)
+
+# Step 3: Import the data back into R
+imported_data <- read.csv("input.csv")
+
+# Step 4: Perform the analysis
+# a) Find the total number of rows and columns
+num_rows <- nrow(imported_data)
+num_cols <- ncol(imported_data)
+
+# b) Find the maximum salary
+max_salary <- max(imported_data$salary)
+
+# c) Retrieve the details of the employee with the maximum salary
+employee_max_salary <- imported_data[imported_data$salary == max_salary, ]
+
+# d) Retrieve all the employees working in the IT Department
+it_employees <- subset(imported_data, dept == "IT")
+
+# e) Retrieve employees in the IT Department with salary > 20000 and save to "output.csv"
+it_employees_high_salary <- subset(it_employees, salary > 20000)
+write.csv(it_employees_high_salary, "output.csv", row.names = FALSE)
+
+# Print results
+cat("Total rows:", num_rows, "\n")
+cat("Total columns:", num_cols, "\n")
+cat("Maximum salary:", max_salary, "\n")
+cat("Employee with max salary:\n")
+print(employee_max_salary)
+cat("Employees in IT Department:\n")
+print(it_employees)
+cat("IT employees with salary > 20000 saved to 'output.csv'.\n")

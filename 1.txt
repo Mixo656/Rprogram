@@ -1,34 +1,82 @@
-# Define Matrix A
-A <- matrix(nrow = 3, ncol = 3, data = c(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# Part a) Demonstrate different data types
+# Numeric
+v <- 23.5
+print(class(v))  # Output: "numeric"
 
-# Define Matrix B
-B <- matrix(nrow = 3, ncol = 3, data = c(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# Logical
+v <- TRUE
+print(class(v))  # Output: "logical"
 
-# Matrix Addition
-add <- A + B
+# Integer
+v <- 2L
+print(class(v))  # Output: "integer"
 
-# Matrix Subtraction
-sub <- A - B
+# Character
+v <- 'a'
+print(class(v))  # Output: "character"
 
-# Matrix Multiplication
-pro <- A %*% B
+apple <- c('red', 'green', 'yellow')
+print(class(apple))  # Output: "character"
 
-# Transpose Matrices
-transpose1 <- t(A)
-transpose2 <- t(B)
+# Complex
+v <- 3 + 4i
+print(class(v))  # Output: "complex"
 
-# Print Results
-print("Matrix Addition:")
-print(add)
+# Part b) Arithmetic and Logical Operations
+# Arithmetic Operators
+v <- c(2, 5.5, 6)
+t <- c(8, 3, 4)
+print(v + t)  # Output: 10.0 8.5 10.0
 
-print("Matrix Subtraction:")
-print(sub)
+# Relational Operators
+v <- c(2, 5.5, 6, 9)
+t <- c(8, 2.5, 14, 9)
+print(v > t)  # Output: FALSE TRUE FALSE FALSE
 
-print("Matrix Multiplication:")
-print(pro)
+# Logical Operators
+v <- c(3, 1, TRUE, 2 + 3i)
+t <- c(4, 1, FALSE, 2 + 3i)
+print(v & t)  # Logical AND operation (only works on logicals, might throw warnings for complex types)
 
-print("Transpose of Matrix A:")
-print(transpose1)
+# Part c) Sequences and Vectors
+# Generate a sequence from 1 to 10
+seq1 <- seq(1, 10)
+print(seq1)  # Output: 1 2 3 4 5 6 7 8 9 10
 
-print("Transpose of Matrix B:")
-print(transpose2)
+# Create a numeric vector
+numeric_vector <- c(1, 2, 3, 4, 5)
+print(numeric_vector)  # Output: 1 2 3 4 5
+
+# Part d) Creation of Matrices
+# Define two matrices
+mat1 <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+mat2 <- matrix(c(5, 6, 7, 8), nrow = 2, ncol = 2)
+
+# Addition of two matrices
+mat_add <- mat1 + mat2
+print(mat_add)
+
+# Part e) Create Matrices from Vectors using Binding Functions
+# Use rbind() to combine rows into a matrix
+row1 <- c(1, 2, 3)
+row2 <- c(4, 5, 6)
+row3 <- c(7, 8, 9)
+a <- rbind(row1, row2, row3)
+print(a)
+# Output:
+#      [,1] [,2] [,3]
+# row1    1    2    3
+# row2    4    5    6
+# row3    7    8    9
+
+# Use cbind() to combine columns into a matrix
+col1 <- c(1, 4, 7)
+col2 <- c(2, 5, 8)
+col3 <- c(3, 6, 9)
+b <- cbind(col1, col2, col3)
+print(b)
+# Output:
+#      col1 col2 col3
+# [1,]    1    2    3
+# [2,]    4    5    6
+# [3,]    7    8    9

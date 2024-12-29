@@ -1,0 +1,32 @@
+# Creating the 'items' data frame
+items <- data.frame(
+  itemCode = c(1001, 1002, 1003, 1004, 1005),
+  itemCategory = c("Electronics", "Desktop Supplies", "Office Supplies", "USB", "CD Drive"),
+  itemPrice = c(700, 300, 350, 400, 800)
+)
+print("Items Data Frame:")
+print(items)
+
+# a) Subset items with price greater than or equal to 350
+subset_price <- subset(items, itemPrice >= 350)
+print("Subset of Items with Price >= 350:")
+print(subset_price)
+
+# b) Subset items where category is either 'Office Supplies' or 'Desktop Supplies'
+subset_category <- subset(items, itemCategory %in% c("Office Supplies", "Desktop Supplies"))
+print("Subset of Items in Category 'Office Supplies' or 'Desktop Supplies':")
+print(subset_category)
+
+# c) Create a new Data Frame 'item_details' with itemCode, itemQtyOnHand, and itemReorderLvl
+item_details <- data.frame(
+  itemCode = c(1001, 1002, 1003, 1004, 1005),
+  itemQtyOnHand = c(50, 30, 20, 10, 60),
+  itemReorderLvl = c(10, 5, 8, 2, 12)
+)
+print("Item Details Data Frame:")
+print(item_details)
+
+# Merge the two data frames
+merged_data <- merge(items, item_details, by = "itemCode")
+print("Merged Data Frame:")
+print(merged_data)

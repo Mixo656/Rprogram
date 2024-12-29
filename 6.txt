@@ -1,0 +1,25 @@
+# Load the dataset
+data(mammals, package = "MASS") # Ensure the dataset is loaded from the MASS package
+
+# a) Calculate Pearson and Spearman correlation coefficients
+pearson_corr <- cor(mammals$body, mammals$brain, method = "pearson")
+print(paste("Pearson Correlation:", pearson_corr))
+
+spearman_corr <- cor(mammals$body, mammals$brain, method = "spearman")
+print(paste("Spearman Correlation:", spearman_corr))
+
+# b) Plot body weight vs. brain weight
+plot(mammals$body, mammals$brain,
+     main = "Body Weight vs. Brain Weight",
+     xlab = "Body Weight (grams)",
+     ylab = "Brain Weight (grams)",
+     pch = 19, # Point type
+     col = "blue") # Color of the points
+
+# c) Plot the logarithm (log) of each variable
+plot(log(mammals$body), log(mammals$brain),
+     main = "Log of Body Weight vs. Log of Brain Weight",
+     xlab = "Log of Body Weight (grams)",
+     ylab = "Log of Brain Weight (grams)",
+     pch = 19, # Point type
+     col = "red") # Color of the points

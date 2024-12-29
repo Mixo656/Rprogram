@@ -1,0 +1,17 @@
+factorial_recursive <- function(n) {
+  if (n == 0) {
+    return(1) # Base case: factorial of 0 is 1
+  } else {
+    return(n * factorial_recursive(n - 1)) # Recursive call
+  }
+}
+
+# Input: Get number from the user
+num <- 5
+
+# Calculate and display the factorial
+if (num < 0) {
+  cat("Factorial is not defined for negative numbers.\n")
+} else {
+  cat("The factorial of", num, "is", factorial_recursive(num), "\n")
+}
